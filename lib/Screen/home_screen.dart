@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_movie_list/Config/app_config.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -54,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             SizedBox(height: 20),
-      
+              
             Container(
               width: double.infinity,
               child: SingleChildScrollView(
@@ -111,8 +112,69 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            SizedBox(height: 20),
+            // 나머지 공간 다 차지
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    MovieListBox(movieName: '아바타', comment: '꿀잼~', count: '120000', date: '2008-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    MovieListBox(movieName: '명량', comment: '재밌네여', count: '100000000', date: '2022-01-01'),
+                    
+                    
+                  ],
+                ),
+              ),
+            )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class MovieListBox extends StatelessWidget {
+  String movieName;
+  String comment;
+  String count;
+  String date;
+
+  MovieListBox({
+    required this.movieName,
+    required this.comment,
+    required this.count,
+    required this.date});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      width: double.infinity,
+      color: Colors.grey.shade100,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('$movieName', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+          Text('$comment',style: TextStyle(fontSize: 15, color: Colors.grey),),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('$count명'),
+              Text('$date 개봉')
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -144,9 +206,9 @@ class TypeButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 3, horizontal: 10),
         child: Text('$text', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.orange, width: 1),
+          border: Border.all(color: AppConfig.mainColor, width: 1),
           borderRadius: BorderRadius.circular(10),
-          color: isSelected ? Colors.orange : Colors.white,
+          color: isSelected ? AppConfig.mainColor : Colors.white,
         ),
       ),
     );

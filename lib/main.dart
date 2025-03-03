@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_movie_list/Config/app_config.dart';
 import 'package:my_movie_list/Screen/home_screen.dart';
 
 void main() {
@@ -13,11 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         // 기본 폰트를 notoSansKr로 변경
         textTheme: GoogleFonts.notoSansKrTextTheme(),
+        primaryColor: AppConfig.mainColor,
       ),
       home: const HomeScreen(),
     );
